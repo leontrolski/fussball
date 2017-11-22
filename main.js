@@ -112,7 +112,7 @@ function rank(players, games){
     games.forEach(game=>{ps = adjust(ps, game)})
     // set points, sort and return
     ps = ps.map(p=>({id: p.id, points: p.skill[0] - 3 * p.skill[1]}))
-    return ps.sort((a, b)=>a.points < b.points).map(p=>[p.id, p.points])
+    return ps.sort((a, b)=>a.points - b.points).map(p=>[p.id, p.points])
 }
 
 // UI components
@@ -142,7 +142,7 @@ var View = ()=>m('.container',
         m('.column',
             m('', 'Players are ranked client-side with ', m('a[href=https://github.com/freethenation/node-trueskill]', 'TrueSkill')),
             m('h2', 'Leaderboard'),
-            rank(state.players, state.games).map(([player, skill], i)=>m('.row',
+            [...rank(state.players, state.games)].reverse().map(([player, skill], i)=>m('.row',
                 m('.column.column-40',
                     m('h5', `${i}. ${player}`)),
                 m('.column.column-20',
