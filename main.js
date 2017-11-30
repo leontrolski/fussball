@@ -89,29 +89,22 @@ function getAll(){
 // main ranking function,
 function rank(players, games){
     function adjust(ps, game){
-        var winners = game.winner === 'l'? game.playersL : game.playersR
-        var losers = game.winner === 'r'? game.playersL : game.playersR
-        var allParticipants = [...winners, ...losers]
-        var winners = ps
-            .filter(p=>winners.includes(p.id))
-            .map(p=>({rank: 1, id:p.id, skill:p.skill}))
-        var losers = ps
-            .filter(p=>losers.includes(p.id))
-            .map(p=>({rank: 2, id:p.id, skill:p.skill}))
-        var toAdjust = [...winners, ...losers]
-        trueskill.AdjustPlayers(toAdjust)
-        return ps.map(p=>({
-            id: p.id,
-            skill: allParticipants.includes(p.id)?
-                toAdjust.filter(o=>o.id===p.id)[0].skill : p.skill
-        }))
+        var [rankL, rankR] = game.winner === 'l'? [1, 2] : [2, 1];
+        var teamL = ps.filter(p=>game.playersL.includes(p.id));
+        var teamR = ps.filter(p=>game.playersR.includes(p.id));
+        var otherPlayers = ps.filter(
+            p=>!game.playersL.includes(p.id) && !game.playersR.includes(p.id));
+
+        var newRatings = trueSkill.calculateNewRatings(teamL, teamR, rankL, rankR);
+
+        return [...newRatings, ...otherPlayers]
     }
     // initial player values
-    var ps = players.map(player=>({id: player, skill: [25.0, 25.0/3.0]}))
+    var ps = players.map(player=>({id: player, mean: 25.0, stdev: 25.0/3.0}))
     // update skill for each game
     games.forEach(game=>{ps = adjust(ps, game)})
     // set points, sort and return
-    ps = ps.map(p=>({id: p.id, points: p.skill[0] - 3 * p.skill[1]}))
+    ps = ps.map(p=>({id: p.id, points: p.mean - 3 * p.stdev}))
     return ps.sort((a, b)=>a.points - b.points).map(p=>[p.id, p.points])
 }
 
@@ -140,7 +133,7 @@ var View = ()=>m('.container',
     m('hr'),
     m('.row',
         m('.column',
-            m('', 'Players are ranked client-side with ', m('a[href=https://github.com/freethenation/node-trueskill]', 'TrueSkill')),
+            m('', 'Players are ranked client-side with ', m('a[href=https://www.microsoft.com/en-us/research/publication/trueskilltm-a-bayesian-skill-rating-system/]', 'TrueSkill')),
             m('h2', 'Leaderboard'),
             [...rank(state.players, state.games)].reverse().map(([player, skill], i)=>m('.row',
                 m('.column.column-40',

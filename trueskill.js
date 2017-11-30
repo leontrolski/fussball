@@ -80,7 +80,7 @@ function update(newRatings, thisTeam, otherTeam, result){
             ((player.stdev * player.stdev) + tauSquared) * (1 - w*stdevMultiplier));
 
         newRatings.push({
-            name: player.name,
+            id: player.id,
             mean: newMean,
             stdev: newStdev,
         });
