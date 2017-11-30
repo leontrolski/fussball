@@ -13,7 +13,7 @@ const GameInfo = {
 function calculateNewRatings(teamL, teamR, rankL, rankR){
     // rank teams in order (i.e. team 1 >= team 2)
     let team1, team2;
-    if (rankL > rankR){
+    if (rankL < rankR){
         team1 = teamL;
         team2 = teamR;
     }
