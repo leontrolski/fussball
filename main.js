@@ -61,7 +61,7 @@ function getGames(){
     fetch(`${firebase}/game.json`)
     .then(res=>res.json())
     .then(games=>{
-        var sortedGames = Object.values(games).sort((a, b)=>a.timestamp > b.timestamp)
+        var sortedGames = Object.values(games).sort((a, b)=>a.timestamp - b.timestamp)
         state.games = sortedGames
         m.redraw()
     })
