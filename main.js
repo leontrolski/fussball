@@ -109,8 +109,15 @@ function rank(players, games){
 }
 
 // UI components
-playerButtonL = player=>m('.button.float-right', {onclick: _=>removePlayerFromGameBeingAdded(player)}, player)
-playerButtonR = player=>m('.button', {onclick: _=>removePlayerFromGameBeingAdded(player)}, player)
+var playerButtonL = player=>m('.button.float-right', {onclick: _=>removePlayerFromGameBeingAdded(player)}, player)
+var playerButtonR = player=>m('.button', {onclick: _=>removePlayerFromGameBeingAdded(player)}, player)
+var winBlock = m('span.green[title=win]', '▀')
+var loseBlock = m('span.red[title=lose]', '▄')
+var blocks = player=>state.games
+    .filter(game=>game.playersL.includes(player) || game.playersR.includes(player))
+    .slice(-5)
+    .map(game=>(game.playersL.includes(player)? 'l': 'r') === game.winner)
+    .map(won=>won? winBlock: loseBlock)
 
 // view derived from state
 var View = ()=>m('.container',
@@ -136,10 +143,12 @@ var View = ()=>m('.container',
             m('', 'Players are ranked client-side with ', m('a[href=https://www.microsoft.com/en-us/research/publication/trueskilltm-a-bayesian-skill-rating-system/]', 'TrueSkill')),
             m('h2', 'Leaderboard'),
             [...rank(state.players, state.games)].reverse().map(([player, skill], i)=>m('.row',
-                m('.column.column-40',
+                m('.column.column-30',
                     m('h5', `${i}. ${player}`)),
-                m('.column.column-20',
-                    m('small', `${skill.toFixed(0)} points`)),
+                m('.column.column-15',
+                    m('small', blocks(player))),
+                m('.column.column-15',
+                    m('small', ` ${skill.toFixed(0)} points`)),
                 state.gameBeingAdded?
                     m('.column',
                         m('.button.button-small', {onclick: _=>addPlayerToL(player)}, 'Add Left'),
