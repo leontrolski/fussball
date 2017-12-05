@@ -86,26 +86,28 @@ function getAll(){
     getPlayers()
 }
 
-// main ranking function,
-function rank(players, games){
-    function adjust(ps, game){
-        var [rankL, rankR] = game.winner === 'l'? [1, 2] : [2, 1];
-        var teamL = ps.filter(p=>game.playersL.includes(p.id));
-        var teamR = ps.filter(p=>game.playersR.includes(p.id));
-        var otherPlayers = ps.filter(
-            p=>!game.playersL.includes(p.id) && !game.playersR.includes(p.id));
-
-        var newRatings = trueSkill.calculateNewRatings(teamL, teamR, rankL, rankR);
-
-        return [...newRatings, ...otherPlayers]
-    }
+// main ranking function
+function adjust(ps, game){
+    var [rankL, rankR] = game.winner === 'l'? [1, 2] : [2, 1];
+    var teamL = ps.filter(p=>game.playersL.includes(p.id));
+    var teamR = ps.filter(p=>game.playersR.includes(p.id));
+    var otherPlayers = ps.filter(
+        p=>!game.playersL.includes(p.id) && !game.playersR.includes(p.id));
+    var newRatings = trueSkill.calculateNewRatings(teamL, teamR, rankL, rankR);
+    return [...newRatings, ...otherPlayers]
+}
+function adjustAddPointsSort(){
+    // fill in
+}
+function getRanked(){ 
     // initial player values
-    var ps = players.map(player=>({id: player, mean: 25.0, stdev: 25.0/3.0}))
-    // update skill for each game
-    games.forEach(game=>{ps = adjust(ps, game)})
+    var ps = state.players.map(player=>({id: player, mean: 25.0, stdev: 25.0/3.0}))
+    // update skill for each game and reduce
+    var [final, accumulated] = R.mapAccum((ps, games)=>R.repeat(adjust(ps, games), 2), ps, state.games)
     // set points, sort and return
-    ps = ps.map(p=>({id: p.id, points: p.mean - 3 * p.stdev}))
-    return ps.sort((a, b)=>a.points - b.points).map(p=>[p.id, p.points])
+    var withPoints = final.map(p=>R.merge(p, {points: p.mean - 3 * p.stdev}))
+    var sorted = R.sort((a, b)=>b.points - a.points, withPoints)
+    return sorted
 }
 
 // UI components
@@ -119,8 +121,16 @@ var blocks = player=>state.games
     .map(game=>(game.playersL.includes(player)? 'l': 'r') === game.winner)
     .map(won=>won? winBlock: loseBlock)
 
+
+var someNum = 4
+
 // view derived from state
-var View = ()=>m('.container',
+var View = ()=>m('.container', 
+    // m('svg[width=400][height=200][xmlns=http://www.w3.org/2000/svg]',
+    //     m('style', 'line, rect{stroke:#000;fill:#fff;}'),
+    //     m('line', {x1:20, x2:120, y1:parseFloat(someNum) * 10, y2: 130}),
+    //     m('line', {x1:- parseFloat(someNum) * 5, x2:120, y1:0, y2: parseFloat(someNum) * 2})),
+    // m('input[type=number]', {value: someNum, oninput: m.withAttr('value', v=>someNum=v)}))
     m('.row', m('h1', 'Fußball')),
     !state.gameBeingAdded?
         m('.row', m('.button', {onclick: setEmptyGame}, 'Add game'))
@@ -142,17 +152,17 @@ var View = ()=>m('.container',
         m('.column',
             m('', 'Players are ranked client-side with ', m('a[href=https://www.microsoft.com/en-us/research/publication/trueskilltm-a-bayesian-skill-rating-system/]', 'TrueSkill')),
             m('h2', 'Leaderboard'),
-            [...rank(state.players, state.games)].reverse().map(([player, skill], i)=>m('.row',
+            getRanked().map((p, i)=>m('.row',
                 m('.column.column-30',
-                    m('h5', `${i}. ${player}`)),
+                    m('h5', `${i}. ${p.id}`)),
                 m('.column.column-15',
-                    m('small', blocks(player))),
+                    m('small', blocks(p.id))),
                 m('.column.column-15',
-                    m('small', ` ${skill.toFixed(0)} points`)),
+                    m('small', ` ${p.points.toFixed(0)} points`)),
                 state.gameBeingAdded?
                     m('.column',
-                        m('.button.button-small', {onclick: _=>addPlayerToL(player)}, 'Add Left'),
-                        m('.button.button-small.button-outline', {onclick: _=>addPlayerToR(player)}, 'Add Right'))
+                        m('.button.button-small', {onclick: _=>addPlayerToL(p.id)}, 'Add Left'),
+                        m('.button.button-small.button-outline', {onclick: _=>addPlayerToR(p.id)}, 'Add Right'))
                     :null)),
                 m('.row',
                     m('.column.column-60',
