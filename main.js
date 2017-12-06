@@ -2,32 +2,36 @@ var root = document.getElementById('root')
 var firebase = 'https://footy-8a5f7.firebaseio.com'
 
 // state var
-var state = {players: [], playerBeingAdded: '', games: [], gameBeingAdded: null}
-
-// functions that mutate `state`
-function setEmptyGame(){
-    state.gameBeingAdded = {playersL: [], playersR: [], timestamp: Date.now()}
+var state = {players: [], playerBeingAdded: '', games: [], gameBeingAdded: null, live: false}
+function setState(f){
+    state = f(state)
 }
-function win(lOrR){
+var view = path=>R.view(R.lensPath(path))
+// functions that take a state and return a state
+var set = (path, value)=>R.set(R.lensPath(path), value)
+var append = (path, value)=>state=>set(path, R.append(value, view(path)(state)))(state)
+var setEmptyGame_ = set(['gameBeingAdded'], {playersL: [], playersR: [], timestamp: Date.now()})
+var setWinner = lOrR=>set(['gameBeingAdded', 'winner'], lOrR)
+var appendGameBeingAdded = state=>append(['games'], state.gameBeingAdded)(state)
+var removeGameBeingAdded = set(['gameBeingAdded'], null)
+
+// functions that mutate `state`, these need grouping properly
+function setEmptyGame(){setState(setEmptyGame_)}
+function setWin(lOrR){
     thereAreSomePlayers = state.gameBeingAdded.playersL.length > 0
     teamsAreEqual = state.gameBeingAdded.playersL.length === state.gameBeingAdded.playersR.length
     if (thereAreSomePlayers && teamsAreEqual){
-        state.gameBeingAdded.winner = lOrR
-        state.games.push(state.gameBeingAdded)
-        postGame()
-        state.gameBeingAdded = null
+        setState(setWinner(lOrR))
+        if(state.live){postGame(state.gameBeingAdded)}
+        setState(appendGameBeingAdded)
+        setState(removeGameBeingAdded)
     }
 }
-function winL(){
-    win('l')
-}
-function winR(){
-    win('r')
-}
+
 function addPlayer(){
     if(state.playerBeingAdded && !state.players.includes(state.playerBeingAdded)){
         state.players.push(state.playerBeingAdded)
-        postPlayer()
+        if(state.live){postPlayer()}
         state.playerBeingAdded = ''
     }
 }
@@ -48,13 +52,13 @@ function addPlayerToR(player){
     addPlayerTo(player, state.gameBeingAdded.playersR)
 }
 // functions that GET/POST from firebase and mutate state
-function postGame(){
-    var gameBeingAdded = JSON.parse(JSON.stringify(state.gameBeingAdded))  // clone
+function postGame(game){
+    var game = JSON.parse(JSON.stringify(game))  // clone
     gameBeingAdded.timestamp = {'.sv': 'timestamp'}  // add server timestamp
     fetch(`${firebase}/game.json`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(gameBeingAdded)
+        body: JSON.stringify(game)
     })
 }
 function getGames(){
@@ -141,8 +145,8 @@ var View = ()=>m('.container',
                     m('.column.column-35', state.gameBeingAdded.playersR.map(playerButtonR)))),
             m('.column',
                 m('span', '⇻',
-                m('.button', {onclick: winL}, 'Left won!'),
-                m('.button.button-outline', {onclick: winR}, 'Right won!'))))],
+                m('.button', {onclick: _=>setWin('l')}, 'Left won!'),
+                m('.button.button-outline', {onclick: _=>setWin('r')}, 'Right won!'))))],
     m('hr'),
     m('.row',
         m('.column',
