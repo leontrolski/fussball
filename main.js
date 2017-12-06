@@ -88,27 +88,23 @@ function getAll(){
 
 // main ranking function
 function adjust(ps, game){
-    var [rankL, rankR] = game.winner === 'l'? [1, 2] : [2, 1];
-    var teamL = ps.filter(p=>game.playersL.includes(p.id));
-    var teamR = ps.filter(p=>game.playersR.includes(p.id));
-    var otherPlayers = ps.filter(
-        p=>!game.playersL.includes(p.id) && !game.playersR.includes(p.id));
-    var newRatings = trueSkill.calculateNewRatings(teamL, teamR, rankL, rankR);
+    var [rankL, rankR] = game.winner === 'l'? [1, 2] : [2, 1]
+    var teamL = ps.filter(p=>game.playersL.includes(p.id))
+    var teamR = ps.filter(p=>game.playersR.includes(p.id))
+    var newRatings = trueSkill.calculateNewRatings(teamL, teamR, rankL, rankR)    
+    var otherPlayers = ps.filter(  // this could be neater
+        p=>!game.playersL.includes(p.id) && !game.playersR.includes(p.id))
     return [...newRatings, ...otherPlayers]
 }
-function adjustAddPointsSort(){
-    // fill in
-}
-function getRanked(){ 
-    // initial player values
-    var ps = state.players.map(player=>({id: player, mean: 25.0, stdev: 25.0/3.0}))
-    // update skill for each game and reduce
-    var [final, accumulated] = R.mapAccum((ps, games)=>R.repeat(adjust(ps, games), 2), ps, state.games)
-    // set points, sort and return
-    var withPoints = final.map(p=>R.merge(p, {points: p.mean - 3 * p.stdev}))
-    var sorted = R.sort((a, b)=>b.points - a.points, withPoints)
-    return sorted
-}
+
+var initialPlayerSkills = ps=>ps.map(player=>({id: player, mean: 25.0, stdev: 25.0/3.0}))
+var addPoints = ps=>ps.map(p=>R.merge(p, {points: p.mean - 3 * p.stdev}))
+var sortByPoints = ps=>R.sort((a, b)=>b.points - a.points, ps)
+var adjustAddPointsSort = R.compose(x=>[x, x], sortByPoints, addPoints, adjust)
+var calculateAll = (players, games)=>R.mapAccum(adjustAddPointsSort, initialPlayerSkills(players), games)[1]
+var calculateAllMemoized = R.memoizeWith((...args)=>JSON.stringify(args), calculateAll)
+var mostRecent = (players, games)=>games.length? R.last(calculateAllMemoized(players, games)) : []
+var getMostRecent = _=> mostRecent(state.players, state.games)
 
 // UI components
 var playerButtonL = player=>m('.button.float-right', {onclick: _=>removePlayerFromGameBeingAdded(player)}, player)
@@ -152,7 +148,7 @@ var View = ()=>m('.container',
         m('.column',
             m('', 'Players are ranked client-side with ', m('a[href=https://www.microsoft.com/en-us/research/publication/trueskilltm-a-bayesian-skill-rating-system/]', 'TrueSkill')),
             m('h2', 'Leaderboard'),
-            getRanked().map((p, i)=>m('.row',
+            getMostRecent().map((p, i)=>m('.row',
                 m('.column.column-30',
                     m('h5', `${i}. ${p.id}`)),
                 m('.column.column-15',
