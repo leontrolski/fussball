@@ -1,0 +1,415 @@
+{
+  "game" : {
+    "-LAIySL8EOvogW_uhYKK" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Bogange" ],
+      "timestamp" : 1523974788489,
+      "winner" : "l"
+    },
+    "-LASlO_n19P8n9znRLLl" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Bogange" ],
+      "timestamp" : 1524139137395,
+      "winner" : "l"
+    },
+    "-LASlQraF2I0iGGnuQ31" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Bogange" ],
+      "timestamp" : 1524139146726,
+      "winner" : "r"
+    },
+    "-LASlUf7F2ltXHIVhEnD" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Bogange" ],
+      "timestamp" : 1524139162312,
+      "winner" : "l"
+    },
+    "-LASlXm3ZuV0BAxLgiNT" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Bogange" ],
+      "timestamp" : 1524139175044,
+      "winner" : "l"
+    },
+    "-LASlZdVdMZ9piDT_tKa" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Bogange" ],
+      "timestamp" : 1524139182688,
+      "winner" : "r"
+    },
+    "-LASlbdvxEZIm6RFerXS" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Bogange" ],
+      "timestamp" : 1524139195003,
+      "winner" : "r"
+    },
+    "-LASlgpt4PJq1z1IVqXT" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Bogange" ],
+      "timestamp" : 1524139216250,
+      "winner" : "l"
+    },
+    "-LASlhnoW3hQsRtjQYhz" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Bogange" ],
+      "timestamp" : 1524139220212,
+      "winner" : "r"
+    },
+    "-LAheNv7sfxyH3CoEGsM" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Verbowski" ],
+      "timestamp" : 1524405735112,
+      "winner" : "l"
+    },
+    "-LBb3tQwhBNBjNatLsL_" : {
+      "playersL" : [ "Verbowski" ],
+      "playersR" : [ "Trolsk" ],
+      "timestamp" : 1525368985340,
+      "winner" : "l"
+    },
+    "-LBb4Wna64GszMLpBJm7" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Verbowski" ],
+      "timestamp" : 1525369150694,
+      "winner" : "r"
+    },
+    "-LBb5XBpCLmnvyrdD8CZ" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Verbowski" ],
+      "timestamp" : 1525369414454,
+      "winner" : "r"
+    },
+    "-LBb6NT4Hn8i7fnDvsXu" : {
+      "playersL" : [ "Verbowski" ],
+      "playersR" : [ "Trolsk" ],
+      "timestamp" : 1525369636741,
+      "winner" : "l"
+    },
+    "-LBbIOXZBIkH_tPYmkne" : {
+      "playersL" : [ "Verbowski" ],
+      "playersR" : [ "Trolsk" ],
+      "timestamp" : 1525372786852,
+      "winner" : "r"
+    },
+    "-LBc0pIWy7UjAhop-CC4" : {
+      "playersL" : [ "ADDudeasaurus" ],
+      "playersR" : [ "Shaccy D" ],
+      "timestamp" : 1525384959201,
+      "winner" : "l"
+    },
+    "-LCoCFZ0Q_J7AWEmavEq" : {
+      "playersL" : [ "Bogange" ],
+      "playersR" : [ "Trolsk" ],
+      "timestamp" : 1526663022849,
+      "winner" : "l"
+    },
+    "-LCoCwjT1x-ptFOKP4RC" : {
+      "playersL" : [ "Bogange" ],
+      "playersR" : [ "Trolsk" ],
+      "timestamp" : 1526663203806,
+      "winner" : "r"
+    },
+    "-LCoDfLVWm1Vsjxgtofl" : {
+      "playersL" : [ "Bogange" ],
+      "playersR" : [ "Trolsk" ],
+      "timestamp" : 1526663394720,
+      "winner" : "l"
+    },
+    "-LCoEPlvcSZmR-_nR14-" : {
+      "playersL" : [ "Bogange" ],
+      "playersR" : [ "Trolsk" ],
+      "timestamp" : 1526663588987,
+      "winner" : "r"
+    },
+    "-LCoFFNklliz7qPIDUsW" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Bogange" ],
+      "timestamp" : 1526663808560,
+      "winner" : "l"
+    },
+    "-LCoUDjraS6TuEu9lpcj" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Bogange" ],
+      "timestamp" : 1526667734007,
+      "winner" : "l"
+    },
+    "-LCoUEyXHgOdq5JPb4XW" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Bogange" ],
+      "timestamp" : 1526667739042,
+      "winner" : "l"
+    },
+    "-LCoUHCA_CNpYGXkgyvo" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Bogange" ],
+      "timestamp" : 1526667748171,
+      "winner" : "l"
+    },
+    "-LCoUIozKuPF_Mkheeyt" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Bogange" ],
+      "timestamp" : 1526667754815,
+      "winner" : "r"
+    },
+    "-LCxP82bfuutcl0s6SEw" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Shaccy D" ],
+      "timestamp" : 1526817394919,
+      "winner" : "l"
+    },
+    "-LCxPhWEez4h3PWgTGk6" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Bogange" ],
+      "timestamp" : 1526817544271,
+      "winner" : "r"
+    },
+    "-LCxQAX0ulGk66B-6tRS" : {
+      "playersL" : [ "Shaccy D" ],
+      "playersR" : [ "Bogange" ],
+      "timestamp" : 1526817667202,
+      "winner" : "l"
+    },
+    "-LCxSBv3fDQHRHmEZArL" : {
+      "playersL" : [ "Shaccy D" ],
+      "playersR" : [ "Irene" ],
+      "timestamp" : 1526818197188,
+      "winner" : "l"
+    },
+    "-LCxX8jN6EE-THsKQdgV" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Shaccy D" ],
+      "timestamp" : 1526819494872,
+      "winner" : "l"
+    },
+    "-LCxXhGcg46vBwBEE-Kf" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Shaccy D" ],
+      "timestamp" : 1526819640424,
+      "winner" : "r"
+    },
+    "-LCxYFBAjxGFU-jj6pMr" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Shaccy D" ],
+      "timestamp" : 1526819783436,
+      "winner" : "r"
+    },
+    "-LCxYssPOt7N21BFFNiy" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Shaccy D" ],
+      "timestamp" : 1526819950106,
+      "winner" : "r"
+    },
+    "-LCxZhPyCVosp_1VpHal" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Shaccy D" ],
+      "timestamp" : 1526820165310,
+      "winner" : "r"
+    },
+    "-LD3AcJXHHul60fqS2al" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Verbowski" ],
+      "timestamp" : 1526931031330,
+      "winner" : "l"
+    },
+    "-LD3B7izfO-49HDUEsk2" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Verbowski" ],
+      "timestamp" : 1526931164095,
+      "winner" : "l"
+    },
+    "-LD3BkBLqCQtn5V6oE-M" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Verbowski" ],
+      "timestamp" : 1526931325718,
+      "winner" : "r"
+    },
+    "-LDabyydnqycWCcQFwNn" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Shaccy D" ],
+      "timestamp" : 1527508889513,
+      "winner" : "r"
+    },
+    "-LDac-dMoJEOHSh99foj" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Shaccy D" ],
+      "timestamp" : 1527508896343,
+      "winner" : "r"
+    },
+    "-LDac0vy-5vcj6QWgWBa" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Shaccy D" ],
+      "timestamp" : 1527508901630,
+      "winner" : "r"
+    },
+    "-LDac2HDGJHa420v6Ayo" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Shaccy D" ],
+      "timestamp" : 1527508907151,
+      "winner" : "r"
+    },
+    "-LDac3C6cQn2B4qBPG8o" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Shaccy D" ],
+      "timestamp" : 1527508910919,
+      "winner" : "l"
+    },
+    "-LDac5Z4cA-cZLXHRH1g" : {
+      "playersL" : [ "Shaccy D" ],
+      "playersR" : [ "Trolsk" ],
+      "timestamp" : 1527508920581,
+      "winner" : "l"
+    },
+    "-LDac6_Maj2RnPqK7B47" : {
+      "playersL" : [ "Shaccy D" ],
+      "playersR" : [ "Trolsk" ],
+      "timestamp" : 1527508924759,
+      "winner" : "l"
+    },
+    "-LDac7bLyXQmNEhXB-Kd" : {
+      "playersL" : [ "Shaccy D" ],
+      "playersR" : [ "Trolsk" ],
+      "timestamp" : 1527508928982,
+      "winner" : "l"
+    },
+    "-LDac8VUtiVr_G61eI2v" : {
+      "playersL" : [ "Shaccy D" ],
+      "playersR" : [ "Trolsk" ],
+      "timestamp" : 1527508932639,
+      "winner" : "l"
+    },
+    "-LFnM_5tqbNT74RSSh36" : {
+      "playersL" : [ "Verbowski" ],
+      "playersR" : [ "Trolsk" ],
+      "timestamp" : 1529870176698,
+      "winner" : "l"
+    },
+    "-LFnNs5LSOhXl8cO1i6W" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Verbowski" ],
+      "timestamp" : 1529870516631,
+      "winner" : "r"
+    },
+    "-LFnNv6_BB8tUMy8gnSe" : {
+      "playersL" : [ "Verbowski" ],
+      "playersR" : [ "Trolsk" ],
+      "timestamp" : 1529870528997,
+      "winner" : "l"
+    },
+    "-LFnORNJhJP99gnIyeyn" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Bogange" ],
+      "timestamp" : 1529870665236,
+      "winner" : "l"
+    },
+    "-LFnOVnUyzTm4SZQsAj4" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Bogange" ],
+      "timestamp" : 1529870683359,
+      "winner" : "l"
+    },
+    "-LFnOW0dLyQ8DtQKA6L_" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Bogange" ],
+      "timestamp" : 1529870684265,
+      "winner" : "l"
+    },
+    "-LFnOWDa0b3ccD2B-O49" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Bogange" ],
+      "timestamp" : 1529870685094,
+      "winner" : "l"
+    },
+    "-LFnOWOiuCysjOw8BAOe" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Bogange" ],
+      "timestamp" : 1529870685806,
+      "winner" : "l"
+    },
+    "-LFnOW_duLBGi6oVJIsc" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Bogange" ],
+      "timestamp" : 1529870686569,
+      "winner" : "l"
+    },
+    "-LFnOWkRS-ezCwbO7XYD" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Bogange" ],
+      "timestamp" : 1529870687260,
+      "winner" : "l"
+    },
+    "-LFnOWwGaC_eEUxWngXb" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Bogange" ],
+      "timestamp" : 1529870688017,
+      "winner" : "l"
+    },
+    "-LFnOX8mfrcByQKKXnkm" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Bogange" ],
+      "timestamp" : 1529870688883,
+      "winner" : "l"
+    },
+    "-LFnOXJW9uJ14SpUIkxt" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Bogange" ],
+      "timestamp" : 1529870689569,
+      "winner" : "l"
+    },
+    "-LFnOXV9zWZ0JB3KUVqo" : {
+      "playersL" : [ "Trolsk" ],
+      "playersR" : [ "Bogange" ],
+      "timestamp" : 1529870690314,
+      "winner" : "l"
+    },
+    "-LFnObcHxLgo-cIDNMcg" : {
+      "playersL" : [ "ADDudeasaurus" ],
+      "playersR" : [ "Bogange" ],
+      "timestamp" : 1529870711314,
+      "winner" : "l"
+    },
+    "-LFnObe6h1jMhFgNilmU" : {
+      "playersL" : [ "ADDudeasaurus" ],
+      "playersR" : [ "Bogange" ],
+      "timestamp" : 1529870711431,
+      "winner" : "l"
+    },
+    "-LFnObq8RxC7_jE3vUns" : {
+      "playersL" : [ "ADDudeasaurus" ],
+      "playersR" : [ "Bogange" ],
+      "timestamp" : 1529870712201,
+      "winner" : "l"
+    },
+    "-LFnOgsETQmBKrDbdg-f" : {
+      "playersL" : [ "ADDudeasaurus" ],
+      "playersR" : [ "Trolsk" ],
+      "timestamp" : 1529870732815,
+      "winner" : "r"
+    },
+    "-LFnOgwnq43truVFMs54" : {
+      "playersL" : [ "ADDudeasaurus" ],
+      "playersR" : [ "Trolsk" ],
+      "timestamp" : 1529870733107,
+      "winner" : "r"
+    },
+    "-LFnOh7xK5m_3DoCaBLr" : {
+      "playersL" : [ "ADDudeasaurus" ],
+      "playersR" : [ "Trolsk" ],
+      "timestamp" : 1529870733885,
+      "winner" : "r"
+    },
+    "-LFnOhF_vNHidRpoWyQ1" : {
+      "playersL" : [ "ADDudeasaurus" ],
+      "playersR" : [ "Trolsk" ],
+      "timestamp" : 1529870734373,
+      "winner" : "r"
+    }
+  },
+  "player" : {
+    "-LASjgMam2zJHIQVVTlW" : "Trolsk",
+    "-LASjouCT11zav0xySza" : "Bogange",
+    "-LASmgLGHcvXCEbHX-oW" : "Shaccy D",
+    "-LASmhtgmBo1ByV7KDgm" : "Kujj",
+    "-LASmjn8mHH-QRczDU-7" : "Verbowski",
+    "-LASmmmsiYBN5i8d07ri" : "ADDudeasaurus",
+    "-LCxQD2ieu7Tn_8KWvpb" : "Irene"
+  }
+}
